@@ -10,7 +10,7 @@ public class Conexion {
     public Connection connection;
     
     private String usuario = "root";
-    private String password = "";
+    private String password = "123456";
     private String servidor = "localhost";
     private String puerto = "3306";
     private String database = "lapaletadb";

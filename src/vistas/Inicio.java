@@ -87,11 +87,6 @@ public class Inicio extends javax.swing.JFrame {
         jPanel2.add(jtfUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(111, 140, 185, 33));
 
         jpfPassword.setBorder(BORDER);
-        jpfPassword.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jpfPasswordActionPerformed(evt);
-            }
-        });
         jpfPassword.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jpfPasswordKeyReleased(evt);
@@ -104,11 +99,6 @@ public class Inicio extends javax.swing.JFrame {
         jbInicio.setForeground(new java.awt.Color(255, 255, 255));
         jbInicio.setText("Iniciar Sesión");
         jbInicio.setBorderPainted(false);
-        jbInicio.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jbInicioMouseClicked(evt);
-            }
-        });
         jbInicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbInicioActionPerformed(evt);
@@ -171,12 +161,15 @@ public class Inicio extends javax.swing.JFrame {
             jlExcepcion.setVisible(true);
             
             switch (flujo) {
-                case 1 -> jtfUsername.setBorder(BORDER_EXCEPTION);
-                case 2 -> jpfPassword.setBorder(BORDER_EXCEPTION);
-                case 3 -> {
+                case 1: jtfUsername.setBorder(BORDER_EXCEPTION);
+                    break;
+                case 2: jpfPassword.setBorder(BORDER_EXCEPTION);
+                    break;
+                case 3: {
                     jtfUsername.setBorder(BORDER_EXCEPTION);
                     jpfPassword.setBorder(BORDER_EXCEPTION);
                 }
+                    break;
             }
             return;
         }
@@ -204,19 +197,14 @@ public class Inicio extends javax.swing.JFrame {
             }
             
             System.out.println("CORRECTO");//REDIRIGIR AL CASO DE USO DE CADA UNO
+            MenuPrincipal menu = new MenuPrincipal();
+            menu.setVisible(true);
+            this.dispose();
             
         } catch (SQLException e) {
             System.out.println(e);
         }
     }//GEN-LAST:event_jbInicioActionPerformed
-
-    private void jbInicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbInicioMouseClicked
-
-    }//GEN-LAST:event_jbInicioMouseClicked
-
-    private void jpfPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jpfPasswordActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jpfPasswordActionPerformed
 
     private void jtfUsernameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfUsernameKeyReleased
         jlPlaceholderUser.setVisible(false);
