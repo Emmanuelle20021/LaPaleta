@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author javie
+ * 
  */
 public class NuevoUsuario extends javax.swing.JFrame {
 

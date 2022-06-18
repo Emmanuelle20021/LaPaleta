@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author javie
+ * 
  */
 public class EliminarUsuario extends javax.swing.JFrame {
 

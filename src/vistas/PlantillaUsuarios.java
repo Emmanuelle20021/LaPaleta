@@ -7,7 +7,7 @@ package vistas;
 
 /**
  *
- * @author javie
+ * 
  */
 public class PlantillaUsuarios extends javax.swing.JFrame {
 
