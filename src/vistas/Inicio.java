@@ -2,19 +2,20 @@ package vistas;
 
 import conexionDB.Conexion;
 import java.sql.*;
+
 /**
  *
  * @author Saske
  */
-public class Inicio extends javax.swing.JFrame { 
+public class Inicio extends javax.swing.JFrame {
+
     private final javax.swing.border.Border PADDING_FIELD = javax.swing.BorderFactory.createEmptyBorder(3, 3, 3, 3);
-    private final javax.swing.border.Border BORDERLINE_FIELD = javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153,153,153));
+    private final javax.swing.border.Border BORDERLINE_FIELD = javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153));
     private final javax.swing.border.Border BORDER = javax.swing.BorderFactory.createCompoundBorder(BORDERLINE_FIELD, PADDING_FIELD);
     private final javax.swing.border.Border BORDERLINE_FIELD_EXCEPTION = javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 0));
     private final javax.swing.border.Border BORDER_EXCEPTION = javax.swing.BorderFactory.createCompoundBorder(BORDERLINE_FIELD_EXCEPTION, PADDING_FIELD);
     private final String DATOS_INCORRECTOS = "Usuario o contraseña incorrectos";
     private final String CAMPOS_VACIOS = "Rellene los campos vacíos";
-
 
     /**
      * Creates new form Inicio
@@ -152,55 +153,61 @@ public class Inicio extends javax.swing.JFrame {
         String username = jtfUsername.getText().trim();
         char password[] = jpfPassword.getPassword();
         byte flujo = 0;
-        
-        if(username.isEmpty()) flujo += 1;
-        if(password.length == 0) flujo += 2;
-        
-        if(flujo > 0){
+
+        if (username.isEmpty()) {
+            flujo += 1;
+        }
+        if (password.length == 0) {
+            flujo += 2;
+        }
+
+        if (flujo > 0) {
             jlExcepcion.setText(CAMPOS_VACIOS);
             jlExcepcion.setVisible(true);
-            
+
             switch (flujo) {
-                case 1: jtfUsername.setBorder(BORDER_EXCEPTION);
+                case 1:
+                    jtfUsername.setBorder(BORDER_EXCEPTION);
                     break;
-                case 2: jpfPassword.setBorder(BORDER_EXCEPTION);
+                case 2:
+                    jpfPassword.setBorder(BORDER_EXCEPTION);
                     break;
                 case 3: {
                     jtfUsername.setBorder(BORDER_EXCEPTION);
                     jpfPassword.setBorder(BORDER_EXCEPTION);
                 }
-                    break;
+                break;
             }
             return;
         }
-         
+
         try {
             Conexion consulta = new Conexion();
             PreparedStatement pst = consulta.connection.prepareStatement("SELECT * FROM usuario WHERE uUsuario = ? ");
             pst.setString(1, username);
             ResultSet rs = pst.executeQuery();
-            
+
             if (!rs.next()) {
                 jlExcepcion.setText(DATOS_INCORRECTOS);
                 jlExcepcion.setVisible(true);
                 return;
             }
-            
+
             String realPassword = rs.getString("uContraseña");
-                
+
             for (int i = 0; i < password.length; i++) {
-                if(password[i] != realPassword.charAt(i)){
+                if (password[i] != realPassword.charAt(i)) {
                     jlExcepcion.setText(DATOS_INCORRECTOS);
                     jlExcepcion.setVisible(true);
                     return;
                 }
             }
-            
+
             System.out.println("CORRECTO");//REDIRIGIR AL CASO DE USO DE CADA UNO
             MenuPrincipal menu = new MenuPrincipal();
             menu.setVisible(true);
             this.dispose();
-            
+
         } catch (SQLException e) {
             System.out.println(e);
         }

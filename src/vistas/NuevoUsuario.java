@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * 
+ *
  */
 public class NuevoUsuario extends javax.swing.JFrame {
 
@@ -139,7 +139,7 @@ public class NuevoUsuario extends javax.swing.JFrame {
         String correo = jtCorreo.getText().trim();
         String cargo = jtCargo.getText().trim();
         String contrasena = jtContrasena.getText();
-        if(usuario.equals("") || nombre.equals("") || correo.equals("") || cargo.equals("") || contrasena.equals("") ){
+        if (usuario.equals("") || nombre.equals("") || correo.equals("") || cargo.equals("") || contrasena.equals("")) {
             JOptionPane.showMessageDialog(null, "Campos vacios");
             return;
         }
@@ -164,9 +164,9 @@ public class NuevoUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_jAceptarActionPerformed
 
     private void jCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCancelarActionPerformed
-            MenuPrincipal menu = new MenuPrincipal();
-            menu.setVisible(true);
-            this.dispose();
+        MenuPrincipal menu = new MenuPrincipal();
+        menu.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jCancelarActionPerformed
 
     /**

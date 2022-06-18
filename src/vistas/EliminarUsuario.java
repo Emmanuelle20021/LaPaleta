@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * 
+ *
  */
 public class EliminarUsuario extends javax.swing.JFrame {
 
@@ -96,7 +96,7 @@ public class EliminarUsuario extends javax.swing.JFrame {
 
     private void jAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jAceptarActionPerformed
         String usuario = jtUsuario.getText();
-        if(usuario.equals("") ){
+        if (usuario.equals("")) {
             JOptionPane.showMessageDialog(null, "Campos vacios");
             return;
         }
@@ -116,9 +116,9 @@ public class EliminarUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_jAceptarActionPerformed
 
     private void jCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCancelarActionPerformed
-            MenuPrincipal menu = new MenuPrincipal();
-            menu.setVisible(true);
-            this.dispose();
+        MenuPrincipal menu = new MenuPrincipal();
+        menu.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jCancelarActionPerformed
 
     /**

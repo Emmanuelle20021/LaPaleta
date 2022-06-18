@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * 
+ *
  */
 public class BuscarUsuario extends javax.swing.JFrame {
 
@@ -172,13 +172,13 @@ public class BuscarUsuario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCancelarActionPerformed
-            MenuPrincipal menu = new MenuPrincipal();
-            menu.setVisible(true);
-            this.dispose();
+        MenuPrincipal menu = new MenuPrincipal();
+        menu.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jCancelarActionPerformed
 
     private void jBuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBuscaActionPerformed
-        if (jtBuscado.getText() != "" ){
+        if (jtBuscado.getText() != "") {
             jtCargo.enable(true);
             jtContrasena.enable(true);
             jtCorreo.enable(true);
@@ -189,12 +189,12 @@ public class BuscarUsuario extends javax.swing.JFrame {
         try {
             Statement busca = consulta.connection.createStatement();
             ResultSet resultado = busca.executeQuery("SELECT * FROM `usuario` WHERE `uUsuario` LIKE '" + jtBuscado.getText() + "';");
-            while (resultado.next()){
-                jtNombre.setText( resultado.getString("uNombre") );
-                jtCargo.setText( resultado.getString("uCargo") );
-                jtUsuario.setText( resultado.getString("uUsuario") );
-                jtContrasena.setText( resultado.getString("uContraseña") );
-                jtCorreo.setText( resultado.getString("uCorreoElectrónico") );
+            while (resultado.next()) {
+                jtNombre.setText(resultado.getString("uNombre"));
+                jtCargo.setText(resultado.getString("uCargo"));
+                jtUsuario.setText(resultado.getString("uUsuario"));
+                jtContrasena.setText(resultado.getString("uContraseña"));
+                jtCorreo.setText(resultado.getString("uCorreoElectrónico"));
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Usuario no encontrado");
@@ -207,7 +207,7 @@ public class BuscarUsuario extends javax.swing.JFrame {
         String correo = jtCorreo.getText().trim();
         String cargo = jtCargo.getText().trim();
         String contrasena = jtContrasena.getText();
-        if(usuario.equals("") || nombre.equals("") || correo.equals("") || cargo.equals("") || contrasena.equals("") ){
+        if (usuario.equals("") || nombre.equals("") || correo.equals("") || cargo.equals("") || contrasena.equals("")) {
             JOptionPane.showMessageDialog(null, "Campos vacios");
             return;
         }
